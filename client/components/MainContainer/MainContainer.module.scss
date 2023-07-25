@@ -1,0 +1,56 @@
+@use '../LeftContainer/LeftContainer.module.scss';
+@use '../RightContainer/RightContainer.module.scss';
+
+
+// $leftContainer {
+//     grid-area: lc;
+//     background-color: blue;
+// }
+
+// $leftContainer-border: 100px;
+// $leftContainer-background-color: rgb(35, 47, 79);
+
+.saveContainer{
+    grid-area: sb;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.saveBtn{
+    background-color: blue;
+    width: 20vw;
+    height: 4vh;
+}
+.delContainer{
+    grid-area: db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.deleteBtn{
+    background-color: blue;
+    width: 20vw;
+    height: 4vh;
+}
+
+.mainContainer{
+    // @extend .rightContainer;
+    // @extend .leftContainer;
+    width: 100%;
+    height: 100%;
+    margin: 0px 0px 0px;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 0.2fr 1fr 1fr;
+    grid-template-areas: 
+    "lc lc sb sb db db"
+    "lc lc rc rc rc rc"
+    "lc lc rc rc rc rc"
+    
+}
+
+body{
+    margin: 0px auto;
+}

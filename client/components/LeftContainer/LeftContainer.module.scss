@@ -1,6 +1,10 @@
 .leftContainer{
-    border: 2px;
-    background-color: red;
+    background-color: rgb(0, 255, 115);
+    grid-area: lc;
+}
+.addContainer{
+    display: flex;
+    justify-content: right;
 }
 .addButton{
     background-color: aqua;

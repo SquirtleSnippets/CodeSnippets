@@ -5,9 +5,9 @@ const RightContainer = () => {
     //functionality for button
     return (
         <div className={styles.rightContainer}>
-            <p>Body of code</p>
+            <div className={styles.codeContainer}>Code Snippet here</div>
         </div>
     )
 }
-
+//{styles.rightContainer}
 export default RightContainer;
