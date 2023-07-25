@@ -3,6 +3,7 @@ const path = require('path')
 const app = express()
 const port = 3000
 
+const apiController = require('./middleware/apiController')
 // parse req body
 app.use(express.json());
 
@@ -12,19 +13,34 @@ app.get('/', (req, res) => {
 })
 
 // save route
-app.post('/api/save', (req, res) => {
+app.post('/api/save', apiController.save, (req, res) => {
   console.log('accessing save route');
-  return res.sendStatus(200);
+  return res.json(res.locals.snipID);
 })
+
 // delete route
-app.delete('/api/delete', (req, res) => {
+app.delete('/api/delete', apiController.delete, (req, res) => {
   console.log('accessing delete route');
   return res.sendStatus(200);
 })
 // getSnippets route
-app.get('/api/getSnippets', (req, res) => {
+app.get('/api/getSnippets', apiController.getSnippets, (req, res) => {
   console.log('accessing getSnippets route');
-  return res.sendStatus(200);
+  // should response be json?
+  return res.json(res.locals.snippets);
+})
+
+// global error handler
+app.use((err, req, res, next) => {
+    const defaultErr = {
+      log: 'Unknown middleware error',
+      // is this the right status?
+      status: 500,
+      message: { err: 'Unkown middleware error'}
+    };
+    const errorObj = Object.assign({}, defaultErr, err);
+    console.log(errorObj.log);
+    return res.status(errorObj.status).json(errorObj.message)
 })
 
 app.listen(port, () => {
