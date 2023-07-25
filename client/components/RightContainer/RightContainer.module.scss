@@ -1,11 +1,27 @@
+@import "../../_variables.scss";
 .rightContainer{
-    background-color: green;
+    background-color: $dark-blue;
     grid-area: rc;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid;
+    border-color: white;
+    border-radius: .8em;
+    box-shadow: 5px 5px 20px black;
+    margin-right: 5px;
+    margin-bottom: 10px;
+
 }
 .codeContainer{
-    background-color: beige;
-    
+    background-color: $dark-blue; 
+    border: none;
+    width: 99%;
+    height: 99%;   
+    color: $lighter-orange;
+    outline: none;
+}
+.codeContainer:focus{
+    background-color: $dark-blue;
+    border: none;
 }

@@ -1,6 +1,6 @@
 @use '../LeftContainer/LeftContainer.module.scss';
 @use '../RightContainer/RightContainer.module.scss';
-
+@import "../../_variables.scss";
 
 // $leftContainer {
 //     grid-area: lc;
@@ -12,15 +12,20 @@
 
 .saveContainer{
     grid-area: sb;
-    background-color: yellow;
+    // background-color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .saveBtn{
-    background-color: blue;
-    width: 20vw;
-    height: 4vh;
+    background-color: $lighter-orange;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
 }
 .delContainer{
     grid-area: db;
@@ -29,9 +34,22 @@
     align-items: center;
 }
 .deleteBtn{
-    background-color: blue;
-    width: 20vw;
-    height: 4vh;
+    background-color: $lighter-orange;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+}
+
+.navGrid {
+    grid-area: ng;
+    border: 2px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+    color: $lighter-orange;
 }
 
 .mainContainer{
@@ -40,11 +58,12 @@
     width: 100%;
     height: 100%;
     margin: 0px 0px 0px;
-    background-color: grey;
+    background-color: $grey-blue;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 0.2fr 1fr 1fr;
+    grid-template-rows: 0.1fr 0.2fr 1fr 1fr;
     grid-template-areas: 
+    "lc lc ng ng ng ng"
     "lc lc sb sb db db"
     "lc lc rc rc rc rc"
     "lc lc rc rc rc rc"

@@ -1,13 +1,16 @@
+@import "../../_variables.scss";
 .titleBtn {
-    background-color: orange;
-    border: 1px solid;
+    background-color: $light-pink;
+    border: none;
     border-radius: 1em;
-    width: 50vw
+    width: 50vw;
     
+}
+.titleBtn:hover, :focus{
+    background-color: $lighter-orange;
 }
 .titleContainer{
     display: flex;
     justify-content: center;
     margin: 10px;
-    background-color: pink;
 }

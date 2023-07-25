@@ -5,7 +5,7 @@ const RightContainer = () => {
     //functionality for button
     return (
         <div className={styles.rightContainer}>
-            <div className={styles.codeContainer}>Code Snippet here</div>
+            <textarea className={styles.codeContainer}></textarea>
         </div>
     )
 }

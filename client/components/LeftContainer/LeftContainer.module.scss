@@ -1,11 +1,23 @@
+@import "../../_variables.scss";
+
 .leftContainer{
-    background-color: rgb(0, 255, 115);
+    // background-color: rgb(0, 255, 115);
+    margin: 10px;
+    // padding-right: 5px;
     grid-area: lc;
+    border-right: 1px solid;
+    border: 2px solid;
+    border-color: white;
+    border-radius: .8em;
+    box-shadow: -5px 5px 20px black;
 }
 .addContainer{
     display: flex;
     justify-content: right;
 }
 .addButton{
-    background-color: aqua;
+    background-color: $lighter-orange;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
 }

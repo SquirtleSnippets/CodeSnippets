@@ -6,6 +6,7 @@ import styles from './MainContainer.module.scss';
 const MainContainer = () => {
   return (
     <div className={styles.mainContainer}>
+      <h1 className={styles.navGrid}>Snippet Ninja</h1>
       <div className={styles.saveContainer}>
         <button className={styles.saveBtn}><p>Save</p></button>
       </div>
