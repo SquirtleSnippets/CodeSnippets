@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './RightContainer.module.scss';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco, nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -7,17 +7,46 @@ import { docco, nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 {/* <textarea className={styles.codeContainer}>                   
             </textarea> */}
 
-const RightContainer = ({textContainer}) => {
-    if (textContainer === true) {
-        return (
-            <div className={styles.rightContainer}>
-            <input placeholder='Enter Title'></input>
-            <textarea className={styles.codeContainer} placeholder='Enter Code Snipper'>
-                               
-            </textarea>
-            </div>
-        )
+const RightContainer = ({selectedSnippetID, snippets, inputState}) => {
+  const [titleState, setTitleState] = useState('');
+  const [codeState, setCodeState] = useState('');
+
+  // if no snippet id return
+  if (!selectedSnippetID) return
+  // create a function that returns snippet with input id
+  function getSnipet() {
+    for (let i = 0; i < snippets.length; i++) {
+      if (snippets[i].snipid === selectedSnippetID) return snippets[i];
     }
+  }
+
+  const handleTitle = (e) => {
+    setTitleState(e.target.value)
+  }
+
+  const snippet = getSnipet(selectedSnippetID);
+
+  if (inputState) {
+    return (
+      <div className={styles.rightContainer}>
+      <input placeholder='Enter Title'
+      value={titleState}
+      onChange={handleTitle}></input>
+      <textarea className={styles.codeContainer} placeholder='Enter Code Snipper'>
+      </textarea>
+      </div>
+  )
+  }
+
+  return (
+    <div className={styles.rightContainer}>
+      <div placeholder='Enter Title'>{snippet.title}</div>
+      <br/>
+      <div placeholder='Enter Title'>{snippet.code}</div>
+      </div>
+  )
+  
+    
     
     const codeString = 
     `
