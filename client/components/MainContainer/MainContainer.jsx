@@ -32,7 +32,6 @@ const MainContainer = () => {
     }
     useEffect(() => {
       getSnippets();
-      setTitleContainers()
     }, []);
 
     const generateTitleContainers = () => {
@@ -47,12 +46,13 @@ const MainContainer = () => {
       return titleArray
     }
     
-    
+  // adding a new snip
   const handleClick = () => {
-    setTitleContainers(prevContainers => [...prevContainers, <TitleContainer  key={prevContainers.length}/>]);
+    // setTitleContainers(prevContainers => [...prevContainers, <TitleContainer  key={prevContainers.length}/>]);
     // The above line uses the functional form of setState to add a new TitleContainer to the array while preserving the previous state.
     setTextContainer(true);
   };
+
   const saveClick = () => {
     setTextContainer(false);
   }
