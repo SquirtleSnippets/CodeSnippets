@@ -3,10 +3,8 @@ import TitleContainer from '../TitleContainer/TitleContainer';
 import styles from './LeftContainer.module.scss';
 import { useState } from 'react';
 
-const LeftContainer = ({titleContainers, handleClick}) => {
-  //functionality for button
-  
-
+const LeftContainer = ({titleContainers, handleAddSnip}) => {
+ 
   
 
   //get titles from database and populate depending on length
@@ -14,7 +12,7 @@ const LeftContainer = ({titleContainers, handleClick}) => {
     <div className={styles.leftContainer}>
       <div className={styles.addContainer}>
         <button className={styles.addButton}
-        onClick={handleClick}>+</button>
+        onClick={handleAddSnip}>+</button>
       </div>
       {titleContainers}
     </div>
