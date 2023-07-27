@@ -21,7 +21,8 @@ app.post('/api/save', apiController.save, (req, res) => {
 });
 
 // delete route
-app.delete('/api/delete', apiController.delete, (req, res) => {
+app.post('/api/delete', apiController.delete, (req, res) => {
+  // console.log();
   console.log('accessing delete route');
   return res.sendStatus(200);
 });

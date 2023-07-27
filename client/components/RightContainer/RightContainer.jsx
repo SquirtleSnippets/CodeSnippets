@@ -10,11 +10,12 @@ import { docco, nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 const RightContainer = ({selectedSnippetID, snippets, inputState}) => {
   const [titleState, setTitleState] = useState('');
   const [codeState, setCodeState] = useState('');
+  const [test, setTest] = useState('');
 
   // if no snippet id return
   if (!selectedSnippetID) return
   // create a function that returns snippet with input id
-  function getSnipet() {
+  function getSnippet() {
     for (let i = 0; i < snippets.length; i++) {
       if (snippets[i].snipid === selectedSnippetID) return snippets[i];
     }
@@ -24,28 +25,31 @@ const RightContainer = ({selectedSnippetID, snippets, inputState}) => {
     setTitleState(e.target.value)
   }
 
-  const snippet = getSnipet(selectedSnippetID);
+  const snippet = getSnippet(selectedSnippetID);
 
-  if (inputState) {
-    return (
-      <div className={styles.rightContainer}>
-      <input placeholder='Enter Title'
-      value={titleState}
-      onChange={handleTitle}></input>
-      <textarea className={styles.codeContainer} placeholder='Enter Code Snipper'>
-      </textarea>
-      </div>
-  )
-  }
-
+  // if (inputState) {
+  //   return (
+  //     <div className={styles.rightContainer}>
+  //     <input placeholder='Enter Title'
+  //     value={titleState}
+  //     onChange={handleTitle}></input>
+  //     <textarea className={styles.codeContainer} placeholder='Enter Code Snipper'>
+  //     </textarea>
+  //     </div>
+  // )
+  // }
+if (snippet) {
+  console.log(snippet.title)
   return (
     <div className={styles.rightContainer}>
+      <input id="title-input" defaultValue={snippet.title} onChange={(e) => {e.target.defaultValue = snippet.title}} />
       <div placeholder='Enter Title'>{snippet.title}</div>
       <br/>
-      <div placeholder='Enter Title'>{snippet.code}</div>
+      <div placeholder='Enter Code'>{snippet.code}</div>
       </div>
-  )
-  
+  )}
+  return
+  }
     
     
     const codeString = 
@@ -81,13 +85,14 @@ const RightContainer = ({selectedSnippetID, snippets, inputState}) => {
     export default LeftContainer;`;
 
     //functionality for button
-    return (
-        <div className={styles.rightContainer}>
-            <SyntaxHighlighter language="javascript" style={nightOwl}>
-            {codeString}           
-            </SyntaxHighlighter>
-        </div>
-    )
-}
+//     return (
+//         <div className={styles.rightContainer}>
+//             <SyntaxHighlighter language="javascript" style={nightOwl}>
+//             {codeString}           
+//             </SyntaxHighlighter>
+//         </div>
+//     )
+// }
 //{styles.rightContainer}
+
 export default RightContainer;

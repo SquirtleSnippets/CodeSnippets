@@ -50,38 +50,41 @@ const MainContainer = () => {
   const response = await fetch('/api/save', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
-    body: JSON.stringify({userID: 1, title: 'New Snippet', code: ''})
+    body: JSON.stringify({userID: 1, title: 'New Snippet', code: 'add code here...'})
   });
   const snipID = await response.json();
   console.log('this is snipID', snipID);
-  setSnippets([{userID: 1, title: 'New Snippet', code: '', snipID: snipID}, ...snippets])
+  setSnippets([{userID: 1, title: 'New Snippet', code: 'add code here...', snipID: snipID}, ...snippets])
   setSelectedSnippetID(snipID);
   setInputState(true);
 }
 
   const saveClick = async () => {
-    const response = await fetch('/api/save', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json'},
-    body: JSON.stringify()
-  });
+    const inputBox = document.querySelector('#title-input')
+    if (!inpuxBox) return
+    const newTitle = inpuxBox.value
+    console.log(newTitle)
+
+  //   const response = await fetch('/api/save', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json'},
+  //   body: JSON.stringify()
+  // });
     
   }
 
-  const deleteClick = () => {
+  const deleteClick = async () => {
     // save selectedSnippetID
     const id = selectedSnippetID;
-    console.log('attempting to delete: ', id)
     // reset setSelectedSnippetID
     setSelectedSnippetID('')
     // remove from state
     for (let i = 0; i < snippets.length; i++) {
-      if (snippets[i].snipid === id) setSnippets(snippets.slice(i, 1))
+      if (snippets[i].snipid === id) setSnippets(snippets.slice(0, i).concat(snippets.slice(i + 1)))
     }
-    console.log('sending fetch to delete ', id)
     // send delete request
-    fetch('/api/delete', {
-      method: 'DELTE',
+    await fetch('/api/delete', {
+      method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({snipID: id})
     })
