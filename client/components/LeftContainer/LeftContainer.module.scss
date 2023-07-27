@@ -10,6 +10,8 @@
     border-color: white;
     border-radius: .8em;
     box-shadow: -5px 5px 20px black;
+    overflow: auto;
+    scrollbar-width: thin;
 }
 .addContainer{
     display: flex;

@@ -11,6 +11,7 @@
     box-shadow: 5px 5px 20px black;
     margin-right: 5px;
     margin-bottom: 10px;
+    padding: 0px 0px 0px 0px;
 
 }
 .codeContainer{
@@ -20,6 +21,7 @@
     height: 99%;   
     color: $lighter-orange;
     outline: none;
+    border-radius: .8em;
 }
 .codeContainer:focus{
     background-color: $dark-blue;
