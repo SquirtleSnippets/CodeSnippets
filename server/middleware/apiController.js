@@ -56,10 +56,11 @@ apiController.save = async (req, res, next) => {
 
 // delete a code snippet by a give ID
 apiController.delete = async (req, res, next) => {
+  console.log('running delete middleware');
   try {
     if (req.body.snipID) {
       // delete snippet in DB
-      const { snipID, userID, title, code } = req.body;
+      const { snipID } = req.body;
       const string = `DELETE FROM codesnippets WHERE snipID = $1`;
       const params = [snipID];
       const response = await ourDBModel(string, params);

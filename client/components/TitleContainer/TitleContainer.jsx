@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './TitleContainer.module.scss';
 
-const TitleContainer = ({title}) => {
+const TitleContainer = ({title, setSelectedSnippetID, snipID, selectedSnippetID, setInputState}) => {
   //functionality for button
   const handleClick = () => {
-    console.log('Hi Shuai');
+    setSelectedSnippetID(snipID)
+    setInputState(false);
   };
   return (
     <div className={styles.titleContainer}>
